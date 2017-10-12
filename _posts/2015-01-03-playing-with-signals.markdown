@@ -633,3 +633,5 @@ $1 = (char (*)[8192]) 0x6012c0
 *   **[BB14]** Erik Bosman and Herbert Bos. We got signal. a return to portable exploits. (working title, subject to change.). In Security & Privacy (Oakland), San Jose, CA, USA, May 2014. IEEE.
 
 *   **[Sha07]** Hovav Shacham. The geometry of innocent flesh on the bone: Return-into-libc without function calls (on the x86). In Proceedings of the 14th ACM Conference on Computer and Communications Security, CCS ’07, pages 552– 561, New York, NY, USA, 2007. ACM.
+
+[haka-blur]: {{site.baseurl}}/images/haka_blur.png
