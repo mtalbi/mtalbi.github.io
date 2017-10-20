@@ -458,7 +458,7 @@ access or elevate his privileges on a restricted co-hosted VM.
 Note that disabling KSM is sufficient to stop our exploit:
 
 {% highlight shell %}
-echo 1 > /sys/kernel/mm/ksm/run
+echo 0 > /sys/kernel/mm/ksm/run
 {% endhighlight %}
 
 **Disclaimer**: Please note that this exploit is provided for testing and
