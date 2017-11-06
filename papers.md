@@ -10,7 +10,7 @@ title:  "Papers"
 *   Haka, dissèque moi un paquet. Misc Magazine. 2015
 *   [Haka - Un langage orienté réseaux et sécurité](https://www.sstic.org/media/SSTIC2014/SSTIC-actes/haka_software_defined_security/SSTIC2014-Article-haka_software_defined_security-denis_talbi_fariello_desse.pdf). SSTIC 2014
 *   Détection des shellcodes polymorphes. Misc Magazine. 2013
-*   Specification and Evaluation of Polymorphic Shellcode Properties Using a New Temporal Logic. Journal in Computer Virology. 2009
+*   [Specification and Evaluation of Polymorphic Shellcode Properties Using a New Temporal Logic](/downloads/jcv.pdf). Journal in Computer Virology. 2009
 *   Specification of Anonymity as a Secrecy Property in the ADM Logic - Homomorphic-based Voting Protocols. ARES 2009
 *   Specification of Electronic Voting Protocols Properties using ADM Logic. ICICS 2008
 
