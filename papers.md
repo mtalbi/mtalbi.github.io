@@ -17,4 +17,4 @@ title:  "Papers"
 ## Demos and workshops
 
 *   [Haka - An Open Source Security Oriented Language](https://www.defcon.org/html/defcon-23/dc-23-demo-labs-schedule.html#Talbi). Defcon 2015
-* [Haka - An Open Source Security Oriented Language](https://www.blackhat.com/eu-15/arsenal.html#haka-an-open-source-security-oriented-language). Blackhat EU 2015 
+*   [Haka - An Open Source Security Oriented Language](https://www.blackhat.com/eu-15/arsenal.html#haka-an-open-source-security-oriented-language). Blackhat EU 2015 
