@@ -49,7 +49,7 @@ unconsciously sorted):
 39. Le Fabuleur Destin d'Amélie Poulain - Jean-Pierre Jeunet
 40. The Man Who Wasn't There - Joel Coen
 41. No Country for Old Men - Joel Coen & Ethan Coen
-42. The Secret in Their Eyes - Juan José Campanella
+42. El Secreto de Sus Ojos - Juan José Campanella
 43. Snowpiercer - Bong Joon Ho
 44. Leon - Luc Besson
 45. Mulholland Drive - David Lynch
@@ -70,14 +70,14 @@ unconsciously sorted):
 60. Drive - Nicolas Winding Refn
 61. City Lights - Charles Chaplin
 62. Three Billboards - Martin McDonagh
-63. Wild Tales - Damián Szifron
+63. Relatos Salvajes - Damián Szifron
 64. A Fistful of Dollars - Sergio Leone
 65. For a Few Dollars More - Sergio Leone
 66. The Good, the Bad and the Ugly - Sergio Leone
 67. The Prestige - Christopher Nolan
 68. Sin City - Robert Rodriguez
 69. There Will Be Blood - Paul Thomas Anderson
-70. La vie est Belle - Roberto Benigni
+70. La vita é bella - Roberto Benigni
 71. The Man from U.N.C.L.E. - Guy Rtichie
 72. A Beautiful Mind - Ron Howard
 73. Catch Me If You Can - Steven Spielberg
