@@ -29,6 +29,7 @@ menu:
     about: "/"
     posts: "/posts"
     papers: "/papers"
+    misc: "/misc"
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
