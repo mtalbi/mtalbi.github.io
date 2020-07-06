@@ -47,6 +47,14 @@ otherwise we will always be served from the row-buffer and won't be able to
 activate a row repeatedly. The ``cflush`` instruction is also required to avoid
 being served from the CPU's cache.
 
+{%highlight asm %}
+ code1a:
+ 	mov (X), %eax  /* read from address X */
+	mov (Y), %ebx  /* read from address Y */
+	clflush (X)    /* flush cache for address X */
+	clflush (Y)    /* flush cache for address Y */
+	jmp code1a
+
 Mark Seaborn and Thomas Dullien have noticed that the row-hammer effect is
 amplified on the victim row ``k`` if we "aggress" its neighbors (row ``k-1``
 and row ``k+1``).
