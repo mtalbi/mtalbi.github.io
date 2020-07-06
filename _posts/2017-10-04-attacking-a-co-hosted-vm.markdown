@@ -44,7 +44,7 @@ adjacent row's cells. This induces bit-flips in adjacent memory rows
 The following code is sufficient to produce bit-flips. The code alternates the
 reading from two different memory rows (**aggressor** rows). This is required,
 otherwise we will always be served from the row-buffer and won't be able to
-activate a row repeatedly. The ``cflush`` instruction is also required to avoid
+activate a row repeatedly. The ``clflush`` instruction is also required to avoid
 being served from the CPU's cache.
 
 {%highlight asm %}
