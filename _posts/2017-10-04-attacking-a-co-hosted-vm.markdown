@@ -47,13 +47,24 @@ otherwise we will always be served from the row-buffer and won't be able to
 activate a row repeatedly. The ``clflush`` instruction is also required to avoid
 being served from the CPU's cache.
 
-{%highlight asm %}
- code1a:
- 	mov (X), %eax  /* read from address X */
-	mov (Y), %ebx  /* read from address Y */
-	clflush (X)    /* flush cache for address X */
-	clflush (Y)    /* flush cache for address Y */
-	jmp code1a
+{%highlight c %}
+volatile uint64_t *a = (volatile uint64_t *)aggressors[0];
+volatile uint64_t *b = (volatile uint64_t *)aggressors[1];
+
+int nb_reads = READ_REPZ;
+
+while (nb_reads-- > 0) {
+	*a;
+	*b;
+
+	asm volatile (
+		"clflush (%0)\n\t"
+		"clflush (%1)\n\t"
+		:
+		: "r" (a), "r" (b)
+		: "memory"
+	);
+{% endhighlight %}
 
 Mark Seaborn and Thomas Dullien have noticed that the row-hammer effect is
 amplified on the victim row ``k`` if we "aggress" its neighbors (row ``k-1``
