@@ -6,8 +6,9 @@ title: Mehdi Talbi
 I'm Mehdi Talbi. I'm a security researcher. My main interests are exploit
 development, reverse engineering and intrusion detection.
 
-I hold a PhD in Computer Science. During my academic research, I worked mainly
-on the formal verification of cryptographic protocols.
+I hold a [PhD](/downloads/thesis.pdf) in Computer Science. During my academic
+research, I worked mainly on the formal verification of cryptographic
+protocols.
 
 In 2012, I joined [Stormshield](www.stormshield.com) where I contributed to the
 [Haka open source project](haka-security.org).
