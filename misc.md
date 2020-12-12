@@ -46,7 +46,7 @@ unconsciously sorted):
 36. Sherlock Holmes: A Game of Shadows - Guy Rtichie
 37. Isle Of Dogs - Wes Anderson
 38. Forrest Gump - Robert Zemeckis
-39. Le Fabuleur Destin d'Amélie Poulain - Jean-Pierre Jeunet
+39. Le Fabuleux Destin d'Amélie Poulain - Jean-Pierre Jeunet
 40. The Man Who Wasn't There - Joel Coen
 41. No Country for Old Men - Joel Coen & Ethan Coen
 42. El Secreto de Sus Ojos - Juan José Campanella
@@ -112,10 +112,18 @@ unconsciously sorted):
 ## Animes
 
 * Death Note
-* Tobaku Mokushiroku Kaiji
 * Hunter x Hunter
 * Attack on Titan
 * Full Metal Alchimist
 * Steins Gate
 * One Punch Man
+* Scissor Seven
 * GTO
+* Tobaku Mokushiroku Kaiji
+
+## Series
+
+1. Black Mirror
+2. Fargo
+3. True Detective - Season 1
+4. Mindhunter
