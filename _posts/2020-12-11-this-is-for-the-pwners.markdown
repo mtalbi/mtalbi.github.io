@@ -19,7 +19,10 @@ ASLR mechanism, we were able to make this bug exploitable. We will focus on the
 exploitation strategy we adopted and how we turned a non-trivial Use-After-Free
 into a R/W primitive leading to code execution.
 
-[^1]: This blogpost entry is co-authored with [@0xdagger](https://twitter.com/0xdagger). The original post is hosted at [Synacktiv website](https://www.synacktiv.com/publications/this-is-for-the-pwners-exploiting-a-webkit-0-day-in-playstation-4.html).
+[^1]: This blogpost entry is co-authored with
+[@0xdagger](https://twitter.com/0xdagger). The original post is hosted at
+[Synacktiv
+website](https://www.synacktiv.com/publications/this-is-for-the-pwners-exploiting-a-webkit-0-day-in-playstation-4.html).
 
 ## Attacking the PS4
 
@@ -77,7 +80,7 @@ The primary heap is made of chunks that are split into `smallpages` (4 KB). A
 small page serves allocations for same-sized objects that are stored into
 `smalllines` (256 bytes).
 
-![]({{site.baseurl}}/images/ps4/heap.pdf){:width="600px" .center}
+![]({{site.baseurl}}/images/ps4/heap.svg){:width="600px" .center}
 
 The primary heap allocator is, in essence, a bump allocator. Objects are
 allocated using the `fastMalloc` primitive that simply does the following when
@@ -100,7 +103,7 @@ page (e.g., page allocated from `lineCache`), the contiguous free lines are used
 to refill the allocator. The rest of the free lines are used to fill the
 `bumpRangeCache`.
 
-![]({{site.baseurl}}/images/ps4/heap-bump.pdf){:width="360px" .center}
+![]({{site.baseurl}}/images/ps4/heap-bump.svg){:width="360px" .center}
 
 When an objected is freed, it is not made immediately available for subsequent
 allocations. It is inserted in a dedicated vector `m_objectLog` that is
@@ -184,7 +187,7 @@ field.  We register on that input field a JS handler. For instance, we can
 define a JS handler that is executed whenever the focus is set on the input
 field.
 
-![]({{site.baseurl}}/images/ps4/exploit-workflow.pdf){:width="500px" .center}
+![]({{site.baseurl}}/images/ps4/exploit-workflow.svg){:width="500px" .center}
 
 The `reportValidity` methods fire-up a timer to call the vulnerable function
 `buildBubbleTree`. If we set the focus on the HTML input field before timer
@@ -205,7 +208,7 @@ focus elsewhere (e.g., on `input2`). Finally, before `buildBubbleTree` gets
 executed, we define a new handler on `input1` that will destroy the
 `ValidationMessage` instance.
 
-![]({{site.baseurl}}/images/ps4/exploit-trigger_2.pdf){:width="600px" .center}
+![]({{site.baseurl}}/images/ps4/exploit-trigger_2.svg){:width="600px" .center}
 
 ### Debugging the bug
 
@@ -231,7 +234,7 @@ The `ValidationMessage` object is created by `reportValidity` and is mainly
 accessed by `buildBubbleTree`. This object is fastmalloc'ed and is made of the
 following fields.
 
-![]({{site.baseurl}}/images/ps4/validation-message.pdf){:width="5000px" .center}
+![]({{site.baseurl}}/images/ps4/validation-message.svg){:width="5000px" .center}
 
 The yellow fields are instantiated (`m_messageBody`, `m_messageHeading`) or gets
 re-instantiated (`m_timer`) after a layout update. The green fields (`m_element`
@@ -278,7 +281,7 @@ content).
 3. Fix the `m_bubble` and `m_element` values so that they point to the address
 that we predicted.
 
-![]({{site.baseurl}}/images/ps4/crash-survive.pdf){:width="400px" .center}
+![]({{site.baseurl}}/images/ps4/crash-survive.svg){:width="400px" .center}
 
 ## Exploitation strategy
 
@@ -298,7 +301,7 @@ related `smallPage` to be cached.
 object.  In our exploit, we spray with `ArrayBuffer(48)` in order to override
 `ValidationMessage` content with the `ArrayBuffer`'s content.
 
-![]({{site.baseurl}}/images/ps4/heap-uaf.pdf){:width="540px" .center}
+![]({{site.baseurl}}/images/ps4/heap-uaf.svg){:width="540px" .center}
 
 ### Initial memory leak
 
@@ -325,7 +328,7 @@ length field. By targeting for example an object with a length and data field
 such as the `StringImpl` object, the misaligned write on the length field would
 allow us to read beyond the data limit.
 
-![]({{site.baseurl}}/images/ps4/exploit-decrement.pdf){:width="400px" .center}
+![]({{site.baseurl}}/images/ps4/exploit-decrement.svg){:width="400px" .center}
 
 In the following, we will exploit the arbitrary decrement primitive twice:
 
@@ -378,7 +381,7 @@ order to ensure that `m_timer` and `StringImpl` reside on the same `smallPage`.
 3. Iterate over the `StringImpl` objects and check which one has a corrupted
 length (e.g., the one that has a huge length is the right one).
 
-![]({{site.baseurl}}/images/ps4/exploit-read.pdf){:width="240px" .center}
+![]({{site.baseurl}}/images/ps4/exploit-read.svg){:width="240px" .center}
 
 Once we have our relative primitive through a corrupted `StringImpl`'s length
 field, let’s see how we can get `JSArrayBufferView` references on the
@@ -433,7 +436,7 @@ to avoid clearing the `JSValue` references.
 sprayed `JSArrayBufferView` references. The targeted reference must be
 reachable from the relative read.
 
-![]({{site.baseurl}}/images/ps4/exploit-find-view.pdf){:width="240px" .center}
+![]({{site.baseurl}}/images/ps4/exploit-find-view.svg){:width="240px" .center}
 
 ### The relative read/write primitive
 
@@ -449,7 +452,7 @@ of each sprayed object. The huge one is the right one.
 This reference can be used to read/write beyond the limit of the fastMalloc'ed
 backing buffer.
 
-![]({{site.baseurl}}/images/ps4/exploit-write.pdf){:width="400px" .center}
+![]({{site.baseurl}}/images/ps4/exploit-write.svg){:width="400px" .center}
 
 ### The arbitrary read/write primitive
 
@@ -467,7 +470,7 @@ buffer reference of another `JSArrayBufferView` object. This allows reading and
 writing arbitrary data at an arbitrary address using the second
 `JSArrayBufferView` reference as depicted by the following figure:
 
-![]({{site.baseurl}}/images/ps4/exploit-arbitrary.pdf){:width="640px" .center}
+![]({{site.baseurl}}/images/ps4/exploit-arbitrary.svg){:width="640px" .center}
 
 ### Code execution
 
