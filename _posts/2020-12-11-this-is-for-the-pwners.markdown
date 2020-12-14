@@ -19,10 +19,7 @@ ASLR mechanism, we were able to make this bug exploitable. We will focus on the
 exploitation strategy we adopted and how we turned a non-trivial Use-After-Free
 into a R/W primitive leading to code execution.
 
-[^1]: This blogpost entry is co-authored with
-[@0xdagger](https://twitter.com/0xdagger). The original post is hosted at
-[Synacktiv
-website](https://www.synacktiv.com/publications/this-is-for-the-pwners-exploiting-a-webkit-0-day-in-playstation-4.html).
+[^1]: This blogpost entry is co-authored with [@0xdagger](https://twitter.com/0xdagger). The original post is hosted at [Synacktiv website](https://www.synacktiv.com/publications/this-is-for-the-pwners-exploiting-a-webkit-0-day-in-playstation-4.html).  
 
 ## Attacking the PS4
 
