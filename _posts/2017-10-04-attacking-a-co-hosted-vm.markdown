@@ -354,6 +354,10 @@ The full exploit (pwnpam.c) is available [here](https://github.com/mtalbi/pwnpam
 Please note that exploit is not 100% reliable and will fail if we can't find
 usable bit-flips.
 
+## Demo
+
+{% include youtubePlayer.html id=fGPZRTRa9Ek %}
+
 ## Going further                                            
 
 The exploit is not fully automatic. At some point, we need to interact with the
