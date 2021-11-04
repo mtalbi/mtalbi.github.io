@@ -13,7 +13,8 @@ protocols.
 In 2012, I joined [Stormshield](www.stormshield.com) where I contributed to the
 [Haka open source project](haka-security.org).
 
-I'm currently working at [Synacktiv](https://www.synacktiv.com/).
+I'm currently working at [Synacktiv](https://www.synacktiv.com/) with the
+reverse engineering team.
 
 I have presented my research at several conferences including Infiltrate,
 Warcon, Virus Buleltin, Defcon, Blackhat, etc.
